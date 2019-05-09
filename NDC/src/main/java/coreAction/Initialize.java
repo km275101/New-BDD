@@ -1,18 +1,20 @@
 package coreAction;
 
-import org.openqa.selenium.support.PageFactory;
+
+import org.testng.annotations.BeforeMethod;
 import pageFunctions.LoginTestPF;
 
 public class Initialize extends OpenAndCloseBrowser{
 
-	protected LoginTestPF lpf = PageFactory.initElements(driver, LoginTestPF.class);
+	public ActionDriver ad ;
+	public LoginTestPF lpf ;
 	
-	/*@BeforeMethod
-	public void initialize() {
-		lpf = PageFactory.initElements(driver, LoginTestPF.class);;
-		//lpf = new LoginTestPF(driver);
-		//pageFunctions.LoginTestPF@64b70919
-	}*/
-	 
+	@BeforeMethod
+	public void initialize(){
+		
+		ad = new ActionDriver(driver);
+		lpf = new LoginTestPF(driver);
+		System.out.println("Initialize class :"+driver);
+	}
 	
 }
