@@ -9,15 +9,11 @@ public class LoginTestPF extends LoginTestPE{
 	 
 	
 	
-	/*public LoginTestPF(WebDriver driver) {
-		super(driver);
-		PageFactory.initElements(driver, this);
-	}*/
-
 	public LoginTestPF(WebDriver driver) {
 		super(driver);
-		// TODO Auto-generated constructor stub
+		PageFactory.initElements(driver, this);
 	}
+
 
 	public void setUsername(String strUser) {
 		System.out.println("Sending username");
