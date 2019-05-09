@@ -27,7 +27,7 @@ public class AmazonImplementation2 extends Initialize{
 		lpf.clickYourOrders();
 		lpf.setUsername("km275101@gmail.com");
 		lpf.clickLogin();
-		lpf.setPass("kame9454");
+		lpf.setPass("");
 		
 	}
 
