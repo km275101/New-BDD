@@ -1,15 +1,16 @@
 package defineStep;
 
 
+import coreAction.Initialize;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import junitRunner.Runner2;
 import pageFunctions.LoginTestPF;
-public class AmazonImplementation2 extends Runner2{
+public class AmazonImplementation2 extends Initialize{
 	
-	LoginTestPF lpf = new LoginTestPF(driver);
+	//LoginTestPF lpf = new LoginTestPF(driver);
 	
 	
 	@Given("^users open login page$")

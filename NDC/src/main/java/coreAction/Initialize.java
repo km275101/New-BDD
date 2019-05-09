@@ -1,23 +1,12 @@
 package coreAction;
 
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.PageFactory;
-import org.testng.annotations.BeforeMethod;
 
-import pageElements.LoginTestPE;
 import pageFunctions.LoginTestPF;
+import junitRunner.Runner2;
 
-public class Initialize extends OpenAndCloseBrowser{
+public class Initialize extends Runner2{
 
 	protected ActionDriver ad;
-	protected LoginTestPE lpf;
-
-	@BeforeMethod 
-	public void initialize(){
-	 
-	  ad = new ActionDriver(driver); 
-	  lpf = new LoginTestPF(driver);
-	  System.out.println("Initialize class :"+driver); }
-	 
+	protected LoginTestPF lpf = new LoginTestPF(driver);
 
 }
