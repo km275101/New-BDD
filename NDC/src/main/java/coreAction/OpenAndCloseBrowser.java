@@ -17,6 +17,7 @@ public class OpenAndCloseBrowser {
 				"D:\\SW\\chromedriver.exe");
 		System.out.println("Opening chrome browser");
 		driver = new ChromeDriver();
+		System.out.println();
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		System.out.println("OCB");
