@@ -1,6 +1,8 @@
 package defineStep;
 
 
+import java.util.List;
+
 import coreAction.Initialize;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
@@ -25,9 +27,12 @@ public class AmazonImplementation2 extends Initialize{
 	@When("^user enters credentials$")
 	public void user_enters_credentials() throws Throwable {
 		lpf.clickYourOrders();
-		lpf.setUsername("km275101@gmail.com");
+		List<String> l = ldp.getUserDetails();
+		String userName = l.get(0);
+		String pass = l.get(1);
+		lpf.setUsername(userName);
 		lpf.clickLogin();
-		lpf.setPass("");
+		lpf.setPass(pass);
 		
 	}
 

@@ -27,7 +27,7 @@ public class Runner2{
 	
 	@BeforeClass
 	public void setup() throws InterruptedException{
-		System.setProperty("webdriver.chrome.driver","D:\\SW\\chromedriver.exe");
+		System.setProperty("webdriver.chrome.driver","C:\\Users\\kamlesh.maurya\\Downloads\\chromedriver_win32\\chromedriver.exe");
 		System.out.println("Opening chrome browser");
 		driver = new ChromeDriver();
 		testRunner = new TestNGCucumberRunner(Runner2.class);
