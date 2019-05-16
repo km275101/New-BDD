@@ -21,9 +21,16 @@ public class LoginDataProvider {
 			fis =  new FileInputStream(file);
 			workbook = new XSSFWorkbook(fis);
 			XSSFSheet worksheet = workbook.getSheet("Login");
-			userDetails.add(worksheet.getRow(1).getCell(0).getStringCellValue().toString());
-			userDetails.add(worksheet.getRow(1).getCell(1).getStringCellValue().toString());
+			 for( int i=1; i<=worksheet.getLastRowNum(); i++)
+			 {
+				 for( int j=1; j<=worksheet.getRow(i).getLastCellNum()-1; j++) {
+				 // Import data for Email.
+			//userDetails.add(worksheet.getRow(1).getCell(0).getStringCellValue().toString());
+			//userDetails.add(worksheet.getRow(1).getCell(1).getStringCellValue().toString());
+				  userDetails.add(worksheet.getRow(i).getCell(j).getStringCellValue().toString()); 
 			System.out.println("Values are :"+userDetails);
+			 }
+			     }
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
