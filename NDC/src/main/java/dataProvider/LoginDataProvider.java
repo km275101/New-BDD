@@ -2,12 +2,14 @@ package dataProvider;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.net.MalformedURLException;
 import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+
 
 public class LoginDataProvider {
 	
@@ -38,25 +40,31 @@ public class LoginDataProvider {
 	}
 	
 	
-public List<String> getUrlDetails() throws InvalidFormatException{
+public String getUrlDetails(String url) throws InvalidFormatException{
 		
 		List<String> urlDetails = new ArrayList<String>();
-		
+		String NOT_EXIST = "URL is not available";
 		try{
 			fis = new FileInputStream(file);
 			workbook = new XSSFWorkbook(fis);
-			XSSFSheet worksheet = workbook.getSheet("Login");
+			XSSFSheet worksheet = workbook.getSheet("URL");
 			int n = worksheet.getLastRowNum();
 			System.out.println("Total number of rows :"+n);
-			urlDetails.add(worksheet.getRow(1).getCell(0).getStringCellValue());
-			//urlDetails.add(worksheet.getRow(1).getCell(1).getStringCellValue());
+			for( int i=1; i<=worksheet.getLastRowNum(); i++)
+			 {
+				if(worksheet.getRow(i).getCell(0).getStringCellValue().toString().equalsIgnoreCase(url)){
+					String newUrl = worksheet.getRow(i).getCell(1).getStringCellValue().toString();;
+					return newUrl;
+				}
+				
+			 }
 			
 		}catch (IOException e) {
 			e.printStackTrace();
 		}
+		return NOT_EXIST;
 		
 		
-		return urlDetails;
 		
 	}
 }
