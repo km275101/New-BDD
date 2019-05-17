@@ -21,9 +21,5 @@ public class Log4j {
 		PropertyConfigurator.configure("Log4j.properties");
 		logger.info("Log4j appender configuration is successful !!");
 	}
-	public static void main(String[] args) {
-		Log4j lg=new Log4j();
-		lg.Log4j();
-				
-	}
+	
 }
