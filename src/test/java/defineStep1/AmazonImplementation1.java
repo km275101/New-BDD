@@ -1,44 +1,50 @@
-package defineStep;
+package defineStep1;
 
 
 import java.util.List;
 
+import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
+
 import coreAction.Initialize;
+import cucumber.api.java.Before;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
-import junitRunner.Runner2;
-import pageFunctions.LoginTestPF;
-public class AmazonImplementation2 extends Initialize{
+import dataProvider.LoginDataProvider;
+public class AmazonImplementation1 extends Initialize{
 	
-	//LoginTestPF lpf = new LoginTestPF(driver);
-	
-	
+	//LoginTestPF login = new LoginTestPF(driver);
+	LoginDataProvider ldp = new LoginDataProvider();
+	@Before
+	public void start() throws InvalidFormatException, InterruptedException {
+		setup("chrome");
+		initialize();
+	}
 	@Given("^users open login page$")
 	public void users_open_login_page() throws Throwable {
 		
 		System.out.println("Opening amazon URL");
-		System.out.println("Driver : "+driver);
-		driver.get("http://www.amazon.in");
+		
+		
 		
 		}
 
 	@When("^user enters credentials$")
 	public void user_enters_credentials() throws Throwable {
-		lpf.clickYourOrders();
+		login.clickYourOrders();
 		List<String> l = ldp.getUserDetails();
 		String userName = l.get(0);
 		String pass = l.get(1);
-		lpf.setUsername(userName);
-		lpf.clickLogin();
-		lpf.setPass(pass);
+		login.setUsername(userName);
+		login.clickLogin();
+		login.setPass(pass);
 		
 	}
 
 	@And("^click submit button$")
 	public void click_submit_button() throws Throwable {
-		lpf.clickLogin();
+		login.clickLogin();
 		
 	}
 

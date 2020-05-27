@@ -1,27 +1,40 @@
 package coreAction;
 
-import java.util.concurrent.TimeUnit;
 
+import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import cucumber.api.testng.TestNGCucumberRunner;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Optional;
+import org.testng.annotations.Parameters;
+
+import cucumber.api.java.Before;
+import dataProvider.LoginDataProvider;
+import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class OpenAndCloseBrowser {
 
 	public static WebDriver driver;
-	private TestNGCucumberRunner testRunner;
 	
-
-	public WebDriver setUp(WebDriver driver) throws InterruptedException {
-		System.setProperty("webdriver.chrome.driver",
-				"D:\\SW\\chromedriver.exe");
-		System.out.println("Opening chrome browser");
-		driver = new ChromeDriver();
-		System.out.println();
-		driver.manage().window().maximize();
-		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-		System.out.println("OCB");
-		return driver;
+		
+		public void setup(String browser) throws InterruptedException, InvalidFormatException {
+			browser ="chrome";
+			if (browser.equalsIgnoreCase("CHROME")) {
+				WebDriverManager.chromedriver().setup();
+				driver = new ChromeDriver();
+			} else if (browser.equalsIgnoreCase("FireFox")) {
+				WebDriverManager.firefoxdriver().setup();
+				driver = new FirefoxDriver();
+			} else {
+				WebDriverManager.iedriver().setup();
+				driver = new InternetExplorerDriver();
+			}
+			driver.manage().window().maximize();
+			LoginDataProvider ldp = new LoginDataProvider();
+			String url = ldp.getUrlDetails(1,1);
+			driver.get(url);
 		
 	}
 

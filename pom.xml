@@ -15,12 +15,12 @@
   </properties>
 
   <dependencies>
-    <!-- <dependency>
+    <dependency>
      <groupId>junit</groupId>
      <artifactId>junit</artifactId>
      <version>4.12</version>
      <scope>test</scope>
- </dependency> -->
+ </dependency> 
      <dependency>
      <groupId>org.seleniumhq.selenium</groupId>
      <artifactId>selenium-java</artifactId>
@@ -37,24 +37,27 @@
      <version>1.0.5</version>
      <scope>provided</scope>
  </dependency>
- <!-- <dependency>
+  <dependency>
      <groupId>info.cukes</groupId>
      <artifactId>cucumber-junit</artifactId>
      <version>1.2.5</version>
- </dependency> -->
+ </dependency> 
  
 <dependency>
     <groupId>info.cukes</groupId>
     <artifactId>cucumber-testng</artifactId>
     <version>1.2.5</version>
     <scope>compile</scope>
-            <exclusions>
-                <exclusion>
-                    <groupId>junit</groupId>
-                    <artifactId>junit</artifactId>
-                </exclusion>
-            </exclusions>
+            
 </dependency>
+
+<!-- https://mvnrepository.com/artifact/io.github.bonigarcia/webdrivermanager -->
+<dependency>
+    <groupId>io.github.bonigarcia</groupId>
+    <artifactId>webdrivermanager</artifactId>
+    <version>3.4.0</version>
+</dependency>
+
  
 <dependency>
     <groupId>org.testng</groupId>

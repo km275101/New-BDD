@@ -10,7 +10,6 @@ public class ActionDriver{
 
 	
 protected WebDriver driver;
-public static OpenAndCloseBrowser ocb = new OpenAndCloseBrowser();
 protected Actions action;
 
 public ActionDriver(WebDriver driver) {

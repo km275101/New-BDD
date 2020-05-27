@@ -25,7 +25,7 @@ import dataProvider.LoginDataProvider;
 	glue = "defineStep"
 	)
 
-public class Runner2 extends OpenAndCloseBrowser{
+public class Runner2 extends OpenAndCloseBrowser{/*
 	
 	public static WebDriver driver;
 	private TestNGCucumberRunner testRunner;
@@ -69,4 +69,4 @@ public class Runner2 extends OpenAndCloseBrowser{
 		testRunner.finish();
 	}
 
-}
+*/}

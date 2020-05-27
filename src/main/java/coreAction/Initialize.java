@@ -2,16 +2,25 @@ package coreAction;
 
 
 import pageFunctions.LoginTestPF;
-import dataProvider.LoginDataProvider;
-import junitRunner.Runner2;
 
-public class Initialize extends Runner2{
+import org.testng.annotations.BeforeMethod;
+
+import cucumber.api.java.Before;
+
+
+
+public class Initialize extends OpenAndCloseBrowser{
 	
-	//DataProvider Class and others
-	protected ActionDriver ad;
-	protected LoginDataProvider ldp = new LoginDataProvider();
+	//protected LoginDataProvider ldp = new LoginDataProvider();
 	
 	// PageFunctions Class
-	protected LoginTestPF lpf = new LoginTestPF(driver);
+	protected LoginTestPF login ;
+	
+	
+	public void initialize() {
+		login = new LoginTestPF(driver);
+		
+		
+	}
 
 }

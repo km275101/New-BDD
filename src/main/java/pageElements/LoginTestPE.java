@@ -7,14 +7,15 @@ import org.openqa.selenium.support.FindBy;
 
 import coreAction.ActionDriver;
 
-public class LoginTestPE extends ActionDriver{
+public class LoginTestPE{
+	
+
+	
 	
 
 	public LoginTestPE(WebDriver driver) {
-		super(driver);
-		
+		// TODO Auto-generated constructor stub
 	}
-	
 
 	@FindBy(xpath="//span[text()='Hello, Sign in']")
 	public WebElement yourOrders ;
