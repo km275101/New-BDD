@@ -16,11 +16,11 @@ public class AmazonImplementation1 extends Initialize{
 	
 	//LoginTestPF login = new LoginTestPF(driver);
 	LoginDataProvider ldp = new LoginDataProvider();
-	@Before
+	/*@Before
 	public void start() throws InvalidFormatException, InterruptedException {
 		setup("chrome");
 		initialize();
-	}
+	}*/
 	@Given("^users open login page$")
 	public void users_open_login_page() throws Throwable {
 		
@@ -30,15 +30,16 @@ public class AmazonImplementation1 extends Initialize{
 		
 		}
 
-	@When("^user enters credentials$")
-	public void user_enters_credentials() throws Throwable {
+	@When("^user enters \"([^\"]*)\" and \"([^\"]*)\"$")
+	public void user_enters_credentials(String user, String pass) throws Throwable {
 		login.clickYourOrders();
-		List<String> l = ldp.getUserDetails();
+		/*List<String> l = ldp.getUserDetails();
 		String userName = l.get(0);
-		String pass = l.get(1);
-		login.setUsername(userName);
+		String pass = l.get(1);*/
+		login.setUsername(user);
 		login.clickLogin();
-		login.setPass(pass);
+		login.setPass(user);
+		login.clickLogin();
 		
 	}
 
