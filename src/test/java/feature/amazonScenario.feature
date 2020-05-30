@@ -19,11 +19,11 @@ Scenario: product search
 Given users is in login page to search product
 
 When user enters productName
-|productName|
-|bra|
-|panty|
-|womens innerwear|
-|black bra|
+|laptop|
+|Apple|
+|IOS|
+|Jeans|
+|black Suit|
 And click search icon
 Then user sees the PLP
 
