@@ -2,10 +2,12 @@ package defineStep1;
 
 
 import java.util.List;
+import java.util.Map;
 
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 
 import coreAction.Initialize;
+import cucumber.api.DataTable;
 import cucumber.api.java.Before;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
@@ -31,14 +33,22 @@ public class AmazonImplementation1 extends Initialize{
 		}
 
 	@When("^user enters \"([^\"]*)\" and \"([^\"]*)\"$")
-	public void user_enters_credentials(String user, String pass) throws Throwable {
+	public void user_enters_credentials(DataTable table) throws Throwable {
+		
+		Map<String, String> map = table.asMap(String.class, String.class);
+		
+		
+		
+		List<List<String>> l = table.raw();
+		String user = l.get(0).get(0).toString();
+		String pass = l.get(0).get(1).toString();
 		login.clickYourOrders();
 		/*List<String> l = ldp.getUserDetails();
 		String userName = l.get(0);
 		String pass = l.get(1);*/
 		login.setUsername(user);
 		login.clickLogin();
-		login.setPass(user);
+		login.setPass(pass);
 		login.clickLogin();
 		
 	}

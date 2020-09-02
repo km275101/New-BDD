@@ -1,5 +1,5 @@
 Feature: amazon scenario complete PF
-
+@Regrssion
 Scenario: amazon testing
 Given users open login page
 
